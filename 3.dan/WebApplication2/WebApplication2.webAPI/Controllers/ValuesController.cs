@@ -26,6 +26,7 @@ namespace WebApplication2.webAPI.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
+        /*
         [HttpGet]
         public List<Books> GetBooks()
         {
@@ -51,8 +52,8 @@ namespace WebApplication2.webAPI.Controllers
                 books.Add(book);
             }
             return books;
-
-        }/*
+        
+        }*/
         [HttpGet]
         public List<Authors> GetAuthors()
         {
@@ -79,7 +80,7 @@ namespace WebApplication2.webAPI.Controllers
             return authors;
 
         }
-        */
+        
         // GET api/values/5
 
         [HttpGet]
