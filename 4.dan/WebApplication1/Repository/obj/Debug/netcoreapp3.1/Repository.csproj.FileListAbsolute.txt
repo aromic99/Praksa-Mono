@@ -1,0 +1,5 @@
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.ResolveComReference.cache
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfoInputs.cache
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\Repository\obj\Debug\netcoreapp3.1\Repository.AssemblyInfo.cs
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\Repository\obj\Debug\netcoreapp3.1\Repository.csproj.CoreCompileInputs.cache
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\Repository\obj\Debug\netcoreapp3.1\Repository.csprojAssemblyReference.cache

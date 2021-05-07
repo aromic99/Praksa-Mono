@@ -51,9 +51,11 @@ C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\b
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\roslyn\VBCSCompiler.exe
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Antlr3.Runtime.dll
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\ClassLibrary3.dll
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Newtonsoft.Json.dll
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Services.dll
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\System.Net.Http.Formatting.dll
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\System.Web.Helpers.dll
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\System.Web.Http.dll
@@ -65,6 +67,9 @@ C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\b
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\System.Web.WebPages.dll
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\System.Web.WebPages.Razor.dll
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\WebGrease.dll
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Repositorya.dll
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\ClassLibrary3.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Services.pdb
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Newtonsoft.Json.xml
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\System.Net.Http.Formatting.xml
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\System.Web.Helpers.xml
@@ -78,6 +83,7 @@ C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\b
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\System.Web.WebPages.Razor.xml
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Antlr3.Runtime.pdb
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\bin\Repositorya.pdb
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\obj\Debug\WebApplication1.WebAPI.csprojAssemblyReference.cache
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\obj\Debug\WebApplication1.WebAPI.csproj.CoreCompileInputs.cache
 C:\Users\Ante\Desktop\Praksa-Mono\4.dan\WebApplication1\WebApplication1.WebAPI\obj\Debug\WebApplication1.WebAPI.csproj.CopyComplete
