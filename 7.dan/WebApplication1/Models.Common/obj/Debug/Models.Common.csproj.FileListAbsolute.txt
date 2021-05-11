@@ -1,0 +1,6 @@
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models.Common\bin\Debug\Models.Common.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models.Common\bin\Debug\Models.Common.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models.Common\obj\Debug\Models.Common.csprojAssemblyReference.cache
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models.Common\obj\Debug\Models.Common.csproj.CoreCompileInputs.cache
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models.Common\obj\Debug\Models.Common.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models.Common\obj\Debug\Models.Common.pdb

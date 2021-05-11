@@ -1,0 +1,9 @@
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\bin\Debug\Models.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\bin\Debug\Models.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\obj\Debug\Models.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\obj\Debug\Models.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\bin\Debug\Models.Common.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\bin\Debug\Models.Common.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Models\obj\Debug\Models.csproj.CopyComplete
