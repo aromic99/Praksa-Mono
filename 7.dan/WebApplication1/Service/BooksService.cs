@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyAuthors.Model;
-using MyBooks.Model;
 using System.Threading.Tasks;
 using IService;
 using IRepository;

@@ -10,12 +10,14 @@ using System.Data;
 using System.Web.Http;
 using IRepository;
 using Models.Common;
+using AutoMapper;
 
 
 namespace Project.Repository
 {
     public class AuthorRepository : IAuthorRepository
     {
+       
         private static readonly string myConnectionString = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
         private static readonly SqlConnection myConnection = new SqlConnection(myConnectionString);
         private static SqlDataReader reader;
@@ -27,18 +29,25 @@ namespace Project.Repository
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandText = "Select * FROM Authors ";
             sqlCmd.Connection = myConnection;
-            myConnection.Open();
-            reader = sqlCmd.ExecuteReader();
-            while (reader.Read())
+            try 
             {
-                IAuthors author = new Author();
-                author.AuthorID = Convert.ToInt32(reader.GetValue(0));
-                author.Name = reader.GetValue(1).ToString();
-                author.IsAlive = Convert.ToBoolean(reader.GetValue(2));
-                authors.Add(author);
+                myConnection.Open();
+                reader = sqlCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    IAuthors author = new Author();
+                    author.AuthorID = Convert.ToInt32(reader.GetValue(0));
+                    author.Name = reader.GetValue(1).ToString();
+                    author.IsAlive = Convert.ToBoolean(reader.GetValue(2));
+                    authors.Add(author);
+                }
             }
-            myConnection.Close();
-            await Task.Delay(50);
+            finally
+            {
+                myConnection.Close();
+                
+            }
+            await Task.Delay(20);
             return authors;
 
         }
@@ -54,7 +63,7 @@ namespace Project.Repository
             while (reader.Read())
             {
                 author = new Author();
-                author.AuthorID = Convert.ToInt32(reader.GetValue(3));
+                author.AuthorID = Convert.ToInt32(reader.GetValue(0));
                 author.Name = reader.GetValue(1).ToString();
                 author.IsAlive = Convert.ToBoolean(reader.GetValue(2));
 
@@ -94,7 +103,7 @@ namespace Project.Repository
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "DELETE FROM Authors WHERE BookID=" + id + "";
+            sqlCmd.CommandText = "DELETE FROM Authors WHERE AuthorID=" + id + "";
             sqlCmd.Connection = myConnection;
             myConnection.Open();
             await Task.Delay(20);

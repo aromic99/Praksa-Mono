@@ -118,3 +118,13 @@ C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\b
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\System.Numerics.Vectors.xml
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\AutoMapper.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\Microsoft.Extensions.Options.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\System.ComponentModel.Annotations.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\AutoMapper.xml
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\Microsoft.Extensions.Options.xml
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\Microsoft.Extensions.Primitives.xml

@@ -18,6 +18,8 @@ using MyBooks.Model;
 using IRepository;
 using Project.Repository;
 using WebApplication1.WebAPI.Controllers;
+using AutoMapper;
+using MyAutoMapper;
 
 namespace WebApplication1.WebApi
 {
@@ -34,9 +36,18 @@ namespace WebApplication1.WebApi
             builder.RegisterType<BookRepository>().As<IBookRepository>();
             builder.RegisterType<AuthorService>().As<IAuthorService>();
             builder.RegisterType<BookService>().As<IBookService>();
-            builder.RegisterType<AuthorController>().InstancePerRequest();
-            builder.RegisterType<BookController>().InstancePerRequest();
 
+            builder.Register(context => new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<OrganizationProfile>();
+            })).AsSelf().InstancePerRequest();
+
+            builder.Register(c =>
+            {
+                var context = c.Resolve<IComponentContext>();
+                var configuration = context.Resolve<MapperConfiguration>();
+                return configuration.CreateMapper(context.Resolve);
+            }).As<IMapper>().InstancePerLifetimeScope();
 
             var container = builder.Build();
 

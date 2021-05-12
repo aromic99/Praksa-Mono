@@ -1,0 +1,6 @@
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\DAL\bin\Debug\DAL.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\DAL\bin\Debug\DAL.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\DAL\obj\Debug\DAL.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\DAL\obj\Debug\DAL.pdb

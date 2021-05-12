@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyAuthors.Model;
 using System.Threading.Tasks;
 using IService;
 using IRepository;
 using Models.Common;
+
 
 namespace ProjectService
 {
     public class AuthorService : IAuthorService
     {
         protected IAuthorRepository Repository { get; set; }
- 
+        public AuthorService() { }
+        public AuthorService(IAuthorRepository repository)
+        {
+            this.Repository = repository;
+        }
         public async Task<List<IAuthors>> FindAllAuthors()
         {
             return await Repository.AllAuthors();
