@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using IService;
 using AutoMapper;
 using Models.Common;
+using WebApp.Common;
 
 namespace WebApplication1.WebAPI.Controllers
 {
@@ -26,9 +27,9 @@ namespace WebApplication1.WebAPI.Controllers
 
 
         [HttpGet]
-        public async Task<HttpResponseMessage> GetAuthors()
+        public async Task<HttpResponseMessage> GetAuthors([FromUri] SortingAuthors howToSort)
         {
-            return Request.CreateResponse(_mapper.Map<List<AuthorRest>>(await Service.FindAllAuthors()));
+            return Request.CreateResponse(_mapper.Map<List<AuthorRest>>(await Service.FindAllAuthors(howToSort)));
         }
         public class AuthorRest
         {

@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Threading.Tasks;
 using IRepository;
 using Models.Common;
+using WebApp.Common;
 
 namespace Project.Repository
 {
@@ -18,26 +19,47 @@ namespace Project.Repository
         private static readonly string myConnectionString = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
         private static readonly SqlConnection myConnection = new SqlConnection(myConnectionString);
         private static SqlDataReader reader;
-        public async Task<List<IBooks>> AllBooks()
+        public string HowToFilter(FilteringBooks howToFilter)
+        {
+            if (howToFilter.Year >0)
+            {
+                return "Where Year >" + howToFilter.Year;
+            }
+            
+            return "";
+        }
+        public async Task<List<IBooks>> AllBooks(SortingBooks howToSort, FilteringBooks howToFilter)
         {
             List<IBooks> books = new List<IBooks>();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandText = "Select * FROM Books ";
-            sqlCmd.Connection = myConnection;
-            myConnection.Open();
-            reader = sqlCmd.ExecuteReader();
-            IBooks book = null;
-            while (reader.Read())
+            sqlCmd.CommandText += HowToFilter(howToFilter);
+            if (!howToSort.Sort())
             {
-                book = new Book();
-                book.BookId = Convert.ToInt32(reader.GetValue(0));
-                book.Name = reader.GetValue(1).ToString();
-                book.Year = Convert.ToInt32(reader.GetValue(2));
-                book.AuthorID = Convert.ToInt32(reader.GetValue(3));
-                books.Add(book);
+                sqlCmd.CommandText += " ORDER BY " + howToSort.SortBy + " " + howToSort.SortOrder;
             }
-            myConnection.Close();
+            try
+            {
+                sqlCmd.Connection = myConnection;
+                myConnection.Open();
+                reader = sqlCmd.ExecuteReader();
+                IBooks book = null;
+                while (reader.Read())
+                {
+                    book = new Book();
+                    book.BookId = Convert.ToInt32(reader.GetValue(0));
+                    book.Name = reader.GetValue(1).ToString();
+                    book.Year = Convert.ToInt32(reader.GetValue(2));
+                    book.AuthorID = Convert.ToInt32(reader.GetValue(3));
+                    books.Add(book);
+                }
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
             await Task.Delay(20);
             return books;
 

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using IService;
 using IRepository;
 using Models.Common;
+using WebApp.Common;
 
 namespace ProjectService
 {
@@ -16,9 +17,9 @@ namespace ProjectService
         {
             this.Repository = repository;
         }
-        public async Task<List<IBooks>> FindAllBooks()
+        public async Task<List<IBooks>> FindAllBooks(SortingBooks howToSort, FilteringBooks howToFilter)
         {
-            return await Repository.AllBooks();
+            return await Repository.AllBooks(howToSort, howToFilter);
         }
 
         public async Task<IBooks> FindBookById(int id)

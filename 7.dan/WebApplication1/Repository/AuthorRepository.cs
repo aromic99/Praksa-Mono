@@ -11,6 +11,7 @@ using System.Web.Http;
 using IRepository;
 using Models.Common;
 using AutoMapper;
+using WebApp.Common;
 
 
 namespace Project.Repository
@@ -22,15 +23,20 @@ namespace Project.Repository
         private static readonly SqlConnection myConnection = new SqlConnection(myConnectionString);
         private static SqlDataReader reader;
 
-        public async Task<List<IAuthors>> AllAuthors()
+        public async Task<List<IAuthors>> AllAuthors(SortingAuthors howToSort)
         {
+            
             List<IAuthors> authors = new List<IAuthors>();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandText = "Select * FROM Authors ";
-            sqlCmd.Connection = myConnection;
+            if (!howToSort.Sort())
+            {
+                sqlCmd.CommandText += " ORDER BY " + howToSort.SortBy + " " + howToSort.SortOrder;
+            }
             try 
             {
+                sqlCmd.Connection = myConnection;
                 myConnection.Open();
                 reader = sqlCmd.ExecuteReader();
                 while (reader.Read())

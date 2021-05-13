@@ -58,6 +58,10 @@
       <Project>{614ec63e-e635-4c28-b5de-d19b356727b5}</Project>
       <Name>Service.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebApp.Common\WebApp.Common.csproj">
+      <Project>{4f650daa-3231-437f-8c4a-51a465920d17}</Project>
+      <Name>WebApp.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

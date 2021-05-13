@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using IService;
 using IRepository;
 using Models.Common;
+using WebApp.Common;
 
 
 namespace ProjectService
@@ -17,9 +18,9 @@ namespace ProjectService
         {
             this.Repository = repository;
         }
-        public async Task<List<IAuthors>> FindAllAuthors()
+        public async Task<List<IAuthors>> FindAllAuthors(SortingAuthors howToSort)
         {
-            return await Repository.AllAuthors();
+            return await Repository.AllAuthors(howToSort);
         }
         public async Task<IAuthors> FindAuthorById(int id)
         {

@@ -17,3 +17,5 @@ C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service\bin\Debug\Models
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service\bin\Debug\Repository.Common.pdb
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service\bin\Debug\Service.Common.pdb
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service\bin\Debug\Models.Common.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service\bin\Debug\WebApp.Common.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service\bin\Debug\WebApp.Common.pdb

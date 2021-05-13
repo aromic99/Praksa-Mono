@@ -15,3 +15,5 @@ C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository.Common\obj\De
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository.Common\obj\Debug\Repository.Common.csproj.CopyComplete
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository.Common\obj\Debug\Repository.Common.dll
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository.Common\obj\Debug\Repository.Common.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository.Common\bin\Debug\WebApp.Common.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository.Common\bin\Debug\WebApp.Common.pdb

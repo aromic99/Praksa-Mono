@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using IService;
 using Models.Common;
 using AutoMapper;
+using WebApp.Common;
 
 namespace WebApplication1.WebAPI.Controllers
 {
@@ -35,9 +36,9 @@ namespace WebApplication1.WebAPI.Controllers
 
         }
         [HttpGet]
-        public async Task<HttpResponseMessage> GetBooks()
+        public async Task<HttpResponseMessage> GetBooks([FromUri]SortingBooks howToSort, [FromUri]FilteringBooks howToFilter)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, _mapper.Map<List<BookRest>>(await service.FindAllBooks()));
+            return Request.CreateResponse(HttpStatusCode.OK, _mapper.Map<List<BookRest>>(await service.FindAllBooks(howToSort, howToFilter)));
         }
         // GET api/values/5
         [HttpGet]

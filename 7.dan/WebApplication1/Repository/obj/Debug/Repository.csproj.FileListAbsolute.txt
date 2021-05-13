@@ -29,3 +29,5 @@ C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository\bin\Debug\Mod
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository\bin\Debug\Repository.Common.pdb
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository\bin\Debug\AutoMapper.dll
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository\bin\Debug\AutoMapper.xml
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository\bin\Debug\WebApp.Common.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Repository\bin\Debug\WebApp.Common.pdb

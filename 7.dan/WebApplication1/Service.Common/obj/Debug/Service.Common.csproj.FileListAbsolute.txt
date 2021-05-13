@@ -19,3 +19,5 @@ C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service.Common\obj\Debug
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service.Common\obj\Debug\Service.Common.csproj.CopyComplete
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service.Common\obj\Debug\Service.Common.dll
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service.Common\obj\Debug\Service.Common.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service.Common\bin\Debug\WebApp.Common.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\Service.Common\bin\Debug\WebApp.Common.pdb
