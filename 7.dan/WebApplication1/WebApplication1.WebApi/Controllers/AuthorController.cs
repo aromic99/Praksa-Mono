@@ -18,18 +18,27 @@ namespace WebApplication1.WebAPI.Controllers
     {
         public IAuthorService Service { get; set; }
         private readonly IMapper _mapper;
-        public AuthorController() { }
         public AuthorController(IAuthorService service, IMapper mapper)
         {
             this.Service = service;
             _mapper = mapper;
         }
-
+        public class SortingAuthorsRest 
+        {
+            public string SortBy { get; set; }
+            public string SortOrder { get; set; }
+            
+        }
+        public class PagingRestA
+        {
+            public int Page { get; set; }
+            public int DataPerPage { get; set; }
+        }
 
         [HttpGet]
-        public async Task<HttpResponseMessage> GetAuthors([FromUri] SortingAuthors howToSort)
+        public async Task<HttpResponseMessage> GetAuthors([FromUri] SortingAuthorsRest howToSort, [FromUri] PagingRestA authorPaging)
         {
-            return Request.CreateResponse(_mapper.Map<List<AuthorRest>>(await Service.FindAllAuthors(howToSort)));
+            return Request.CreateResponse(_mapper.Map<List<AuthorRest>>(await Service.FindAllAuthors(_mapper.Map<SortingAuthors>(howToSort), _mapper.Map<Paging>(authorPaging))));
         }
         public class AuthorRest
         {

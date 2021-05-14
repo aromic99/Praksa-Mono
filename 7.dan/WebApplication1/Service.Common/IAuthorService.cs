@@ -9,7 +9,7 @@ namespace IService
     {
         Task AddNewAuthor(IAuthors author);
         Task DeleteAnAuthor(int id);
-        Task<List<IAuthors>> FindAllAuthors(SortingAuthors howToSort);
+        Task<List<IAuthors>> FindAllAuthors(ISortingAuthors howToSort, IPaging authorPaging);
         Task<IAuthors> FindAuthorById(int id);
         Task UpdateAnAuthor(int id, IAuthors author);
     }

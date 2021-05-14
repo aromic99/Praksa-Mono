@@ -20,7 +20,6 @@ namespace WebApplication1.WebAPI.Controllers
         public IBookService service { get; set; }
         public IAuthorService authorService { get; set; }
         private readonly IMapper _mapper;
-        public BookController() { }
         public BookController(IBookService service, IMapper mapper , IAuthorService authorService)
         {
             this.service = service;
@@ -35,10 +34,25 @@ namespace WebApplication1.WebAPI.Controllers
             public int AuthorID { get; set; }
 
         }
-        [HttpGet]
-        public async Task<HttpResponseMessage> GetBooks([FromUri]SortingBooks howToSort, [FromUri]FilteringBooks howToFilter)
+        public class SortingBooksRest
         {
-            return Request.CreateResponse(HttpStatusCode.OK, _mapper.Map<List<BookRest>>(await service.FindAllBooks(howToSort, howToFilter)));
+            public string SortBy { get; set; }
+            public string SortOrder { get; set; }
+        }
+        public class FilteringBooksRest
+        {
+            public int Year { get; set; }
+        }
+        public class PagingRest
+        {
+            public int Page { get; set; }
+            public int DataPerPage { get; set; }
+        }
+        [HttpGet]
+        public async Task<HttpResponseMessage> GetBooks([FromUri]SortingBooksRest howToSort, [FromUri]FilteringBooksRest howToFilter, [FromUri] PagingRest bookPaging)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, _mapper.Map<List<BookRest>>
+                (await service.FindAllBooks(_mapper.Map<SortingBooks>(howToSort),_mapper.Map<FilteringBooks>(howToFilter), _mapper.Map<Paging>(bookPaging))));
         }
         // GET api/values/5
         [HttpGet]

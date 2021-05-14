@@ -130,3 +130,5 @@ C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\b
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\Microsoft.Extensions.Primitives.xml
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\WebApp.Common.dll
 C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\WebApp.Common.pdb
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\DAL.dll
+C:\Users\Ante\Desktop\Praksa-Mono\7.dan\WebApplication1\WebApplication1.WebApi\bin\DAL.pdb

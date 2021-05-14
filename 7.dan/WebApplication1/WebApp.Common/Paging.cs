@@ -6,21 +6,9 @@ using System.Threading.Tasks;
 
 namespace WebApp.Common
 {
-    public class Paging
+    public class Paging : IPaging
     {
-        const int maxPageSize = 50;
-        public int pageNumber { get; set; } = 1;
-        private int _pageSize = 10;
-        public int PageSize
-        {
-            get
-            {
-                return _pageSize;
-            }
-            set
-            {
-                _pageSize = (value > maxPageSize) ? maxPageSize : value;
-            }
-        }
+        public int Page { get; set; }
+        public int DataPerPage { get; set; }
     }
 }

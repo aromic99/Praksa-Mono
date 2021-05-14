@@ -12,14 +12,13 @@ namespace ProjectService
     public class BookService : IBookService
     {
         protected IBookRepository Repository { get; set; }
-        public BookService() { }
         public BookService(IBookRepository repository)
         {
             this.Repository = repository;
         }
-        public async Task<List<IBooks>> FindAllBooks(SortingBooks howToSort, FilteringBooks howToFilter)
+        public async Task<List<IBooks>> FindAllBooks(ISortingBooks howToSort, IFilteringBooks howToFilter, IPaging bookPaging)
         {
-            return await Repository.AllBooks(howToSort, howToFilter);
+            return await Repository.AllBooks(howToSort, howToFilter, bookPaging);
         }
 
         public async Task<IBooks> FindBookById(int id)

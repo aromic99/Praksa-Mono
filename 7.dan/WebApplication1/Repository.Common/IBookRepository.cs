@@ -10,7 +10,7 @@ namespace IRepository
     public interface IBookRepository
     {
         Task AddBook([FromBody] IBooks book);
-        Task<List<IBooks>> AllBooks(SortingBooks howToSort,FilteringBooks howToFilter);
+        Task<List<IBooks>> AllBooks(ISortingBooks howToSort,IFilteringBooks howToFilter, IPaging bookPaging);
         Task<IBooks> BookById(int id);
         Task DeleteBook(int id);
         Task Updatebook(int id, [FromBody] IBooks book);

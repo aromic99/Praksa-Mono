@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApp.Common
 {
-    public class SortingBooks
+    public class SortingBooks : ISortingBooks
     {
         public string SortOrder { get; set; }
         public string SortBy { get; set; }

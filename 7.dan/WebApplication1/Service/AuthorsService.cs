@@ -13,14 +13,13 @@ namespace ProjectService
     public class AuthorService : IAuthorService
     {
         protected IAuthorRepository Repository { get; set; }
-        public AuthorService() { }
         public AuthorService(IAuthorRepository repository)
         {
             this.Repository = repository;
         }
-        public async Task<List<IAuthors>> FindAllAuthors(SortingAuthors howToSort)
+        public async Task<List<IAuthors>> FindAllAuthors(ISortingAuthors howToSort, IPaging authorPaging)
         {
-            return await Repository.AllAuthors(howToSort);
+            return await Repository.AllAuthors(howToSort, authorPaging);
         }
         public async Task<IAuthors> FindAuthorById(int id)
         {

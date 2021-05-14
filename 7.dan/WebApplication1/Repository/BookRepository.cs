@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using IRepository;
 using Models.Common;
 using WebApp.Common;
+using AutoMapper;
+using DAL;
 
 namespace Project.Repository
 {
@@ -19,35 +21,46 @@ namespace Project.Repository
         private static readonly string myConnectionString = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
         private static readonly SqlConnection myConnection = new SqlConnection(myConnectionString);
         private static SqlDataReader reader;
-        public string HowToFilter(FilteringBooks howToFilter)
+
+        private readonly IMapper mapper;
+
+        public BookRepository(IMapper mapper)
         {
-            if (howToFilter.Year >0)
-            {
-                return "Where Year >" + howToFilter.Year;
-            }
-            
-            return "";
+            this.mapper = mapper;
         }
-        public async Task<List<IBooks>> AllBooks(SortingBooks howToSort, FilteringBooks howToFilter)
+
+        public async Task<List<IBooks>> AllBooks(ISortingBooks howToSort, IFilteringBooks howToFilter, IPaging bookPaging)
         {
-            List<IBooks> books = new List<IBooks>();
+            List<BookEntity> books = new List<BookEntity>();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandText = "Select * FROM Books ";
-            sqlCmd.CommandText += HowToFilter(howToFilter);
+            sqlCmd.CommandText += howToFilter.HowToFilter(howToFilter);
             if (!howToSort.Sort())
             {
                 sqlCmd.CommandText += " ORDER BY " + howToSort.SortBy + " " + howToSort.SortOrder;
+            }
+            if (bookPaging == null)
+            {
+                sqlCmd.CommandText += "";
+            }
+            else
+            {
+                if (howToSort.SortBy != "")
+                    if (bookPaging.DataPerPage != 0 && bookPaging.Page != 0)
+                    {
+                        sqlCmd.CommandText += " OFFSET " + bookPaging.DataPerPage * (bookPaging.Page - 1) + " ROWS FETCH NEXT " + bookPaging.DataPerPage + " ROWS ONLY ";
+                    }
             }
             try
             {
                 sqlCmd.Connection = myConnection;
                 myConnection.Open();
                 reader = sqlCmd.ExecuteReader();
-                IBooks book = null;
+                BookEntity book = null;
                 while (reader.Read())
                 {
-                    book = new Book();
+                    book = new BookEntity();
                     book.BookId = Convert.ToInt32(reader.GetValue(0));
                     book.Name = reader.GetValue(1).ToString();
                     book.Year = Convert.ToInt32(reader.GetValue(2));
@@ -61,7 +74,7 @@ namespace Project.Repository
             }
 
             await Task.Delay(20);
-            return books;
+            return mapper.Map<List<IBooks>>(books);
 
         }
 
@@ -73,10 +86,10 @@ namespace Project.Repository
             sqlCmd.Connection = myConnection;
             myConnection.Open();
             reader = sqlCmd.ExecuteReader();
-            IBooks book = null;
+            BookEntity book = null;
             while (reader.Read())
             {
-                book = new Book();
+                book = new BookEntity();
                 book.BookId = Convert.ToInt32(reader.GetValue(0));
                 book.Name = reader.GetValue(1).ToString();
                 book.Year = Convert.ToInt32(reader.GetValue(2));
@@ -84,7 +97,7 @@ namespace Project.Repository
             }
             myConnection.Close();
             await Task.Delay(20);
-            return book;
+            return mapper.Map<IBooks>(book);
         }
         public async Task AddBook([FromBody] IBooks book)
         {

@@ -37,6 +37,7 @@ namespace WebApplication1.WebApi
             builder.RegisterType<AuthorService>().As<IAuthorService>();
             builder.RegisterType<BookService>().As<IBookService>();
 
+
             builder.Register(context => new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<OrganizationProfile>();

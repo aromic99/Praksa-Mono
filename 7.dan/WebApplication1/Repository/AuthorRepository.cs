@@ -12,6 +12,7 @@ using IRepository;
 using Models.Common;
 using AutoMapper;
 using WebApp.Common;
+using DAL;
 
 
 namespace Project.Repository
@@ -22,17 +23,34 @@ namespace Project.Repository
         private static readonly string myConnectionString = ConfigurationManager.ConnectionStrings["defcon"].ConnectionString;
         private static readonly SqlConnection myConnection = new SqlConnection(myConnectionString);
         private static SqlDataReader reader;
-
-        public async Task<List<IAuthors>> AllAuthors(SortingAuthors howToSort)
+        private readonly IMapper mapper;
+        public AuthorRepository(IMapper mapper)
+        {
+            this.mapper = mapper;
+        }
+        public async Task<List<IAuthors>> AllAuthors(ISortingAuthors howToSort, IPaging authorPaging)
         {
             
-            List<IAuthors> authors = new List<IAuthors>();
+            List<AuthorEntity> authors = new List<AuthorEntity>();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
             sqlCmd.CommandText = "Select * FROM Authors ";
             if (!howToSort.Sort())
             {
                 sqlCmd.CommandText += " ORDER BY " + howToSort.SortBy + " " + howToSort.SortOrder;
+            }
+
+            if (authorPaging == null)
+            {
+                sqlCmd.CommandText += "";
+            }
+            else
+            {
+                if (howToSort.SortBy != "")
+                    if (authorPaging.DataPerPage != 0 && authorPaging.Page != 0)
+                    {
+                        sqlCmd.CommandText += " OFFSET " + authorPaging.DataPerPage * (authorPaging.Page - 1) + " ROWS FETCH NEXT " + authorPaging.DataPerPage + " ROWS ONLY ";
+                    }
             }
             try 
             {
@@ -41,7 +59,7 @@ namespace Project.Repository
                 reader = sqlCmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    IAuthors author = new Author();
+                    AuthorEntity author = new AuthorEntity();
                     author.AuthorID = Convert.ToInt32(reader.GetValue(0));
                     author.Name = reader.GetValue(1).ToString();
                     author.IsAlive = Convert.ToBoolean(reader.GetValue(2));
@@ -54,7 +72,7 @@ namespace Project.Repository
                 
             }
             await Task.Delay(20);
-            return authors;
+            return mapper.Map<List<IAuthors>>(authors);
 
         }
         public async Task<IAuthors> AuthorById(int id)
@@ -65,10 +83,10 @@ namespace Project.Repository
             sqlCmd.Connection = myConnection;
             myConnection.Open();
             reader = sqlCmd.ExecuteReader();
-            IAuthors author = null;
+            AuthorEntity author = null;
             while (reader.Read())
             {
-                author = new Author();
+                author = new AuthorEntity();
                 author.AuthorID = Convert.ToInt32(reader.GetValue(0));
                 author.Name = reader.GetValue(1).ToString();
                 author.IsAlive = Convert.ToBoolean(reader.GetValue(2));
@@ -76,7 +94,7 @@ namespace Project.Repository
             }
             myConnection.Close();
             await Task.Delay(20);
-            return author;
+            return mapper.Map<IAuthors>(author);
         }
         public async Task AddAnAuthor([FromBody] IAuthors author)
         {

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace WebApp.Common
 {
-    public class SortingAuthors
+    public class SortingAuthors : ISortingAuthors
     {
         public string SortOrder { get; set; }
         public string SortBy { get; set; }
 
         public bool Sort()
         {
-            if(SortBy == null && SortOrder == null)
+            if (SortBy == null && SortOrder == null)
             {
                 return true;
             }
