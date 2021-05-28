@@ -8,9 +8,9 @@ namespace DAL
 {
     public class BookEntity
     {
-        public int BookId { get; set; }
+        public Guid BookId { get; set; }
         public string Name { get; set; }
         public int Year { get; set; }
-        public int AuthorID { get; set; }
+        public Guid AuthorID { get; set; }
     }
 }

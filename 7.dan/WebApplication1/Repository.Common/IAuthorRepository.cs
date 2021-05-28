@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Models.Common;
 using WebApp.Common;
+using System;
 
 namespace IRepository
 {
@@ -11,8 +12,8 @@ namespace IRepository
     {
         Task AddAnAuthor([FromBody] IAuthors author);
         Task<List<IAuthors>> AllAuthors(ISortingAuthors howToSort, IPaging authorPaging);
-        Task<IAuthors> AuthorById(int id);
-        Task DeleteAnAuthor(int id);
-        Task UpdateAnAuthor(int id, [FromBody] IAuthors author);
+        Task<IAuthors> AuthorById(Guid id);
+        Task DeleteAnAuthor(Guid id);
+        Task UpdateAnAuthor(Guid id, [FromBody] IAuthors author);
     }
 }

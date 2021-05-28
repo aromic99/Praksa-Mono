@@ -21,7 +21,7 @@ namespace ProjectService
         {
             return await Repository.AllAuthors(howToSort, authorPaging);
         }
-        public async Task<IAuthors> FindAuthorById(int id)
+        public async Task<IAuthors> FindAuthorById(Guid id)
         {
             return await Repository.AuthorById(id);
         }
@@ -30,11 +30,11 @@ namespace ProjectService
             await Repository.AddAnAuthor(author);
         }
 
-        public async Task UpdateAnAuthor(int id, IAuthors author)
+        public async Task UpdateAnAuthor(Guid id, IAuthors author)
         {
             await Repository.UpdateAnAuthor(id, author);
         }
-        public async Task DeleteAnAuthor(int id)
+        public async Task DeleteAnAuthor(Guid id)
         {
             await Repository.DeleteAnAuthor(id);
         }

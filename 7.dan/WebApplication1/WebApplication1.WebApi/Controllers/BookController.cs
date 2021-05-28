@@ -28,10 +28,10 @@ namespace WebApplication1.WebAPI.Controllers
         }
         public class BookRest
         {
-            public int BookId { get; set; }
+            public Guid BookId { get; set; }
             public string Name { get; set; }
             public int Year { get; set; }
-            public int AuthorID { get; set; }
+            public Guid AuthorID { get; set; }
 
         }
         public class SortingBooksRest
@@ -56,7 +56,7 @@ namespace WebApplication1.WebAPI.Controllers
         }
         // GET api/values/5
         [HttpGet]
-        public async Task<HttpResponseMessage> GetBookById(int id)
+        public async Task<HttpResponseMessage> GetBookById(Guid id)
         {
             
                 if (await service.FindBookById(id) != null)
@@ -72,22 +72,14 @@ namespace WebApplication1.WebAPI.Controllers
         [HttpPost]
         public async Task<HttpResponseMessage> Post([FromBody] BookRest book)
         {
-            if (await service.FindBookById(book.BookId) == null)
-            {
-                if (await authorService.FindAuthorById(book.AuthorID) != null)
-                {
+                
                     await service.AddNewBook(_mapper.Map<IBooks>(book));
                     return Request.CreateResponse(HttpStatusCode.OK, "New book added");
-                }
-                return Request.CreateResponse(HttpStatusCode.BadRequest, "There is no author with that ID");
-
-            }
-                return Request.CreateResponse(HttpStatusCode.NotFound, "There is already a book with that ID");
-
-            }
+                        
+        }
 
         // PUT api/values/5
-        public async Task<HttpResponseMessage> Put(int id, [FromBody] BookRest book)
+        public async Task<HttpResponseMessage> Put(Guid id, [FromBody] BookRest book)
         {
             
                 if ( await service.FindBookById(id) == null)
@@ -104,7 +96,7 @@ namespace WebApplication1.WebAPI.Controllers
             
             return Request.CreateResponse(HttpStatusCode.NotFound, "There is no book with that ID");
         }
-        public async Task<HttpResponseMessage> Delete(int id)
+        public async Task<HttpResponseMessage> Delete(Guid id)
         {
             
                 if (await service.FindBookById(id) != null)

@@ -1,9 +1,10 @@
-﻿namespace Models.Common
+﻿using System;
+namespace Models.Common
 {
     public interface IBooks
     {
-        int AuthorID { get; set; }
-        int BookId { get; set; }
+        Guid AuthorID { get; set; }
+        Guid BookId { get; set; }
         string Name { get; set; }
         int Year { get; set; }
     }

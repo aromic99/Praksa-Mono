@@ -8,7 +8,7 @@ namespace DAL
 {
     public class AuthorEntity
     {
-        public int AuthorID { get; set; }
+        public Guid AuthorID { get; set; }
         public string Name { get; set; }
         public bool IsAlive { get; set; }
     }

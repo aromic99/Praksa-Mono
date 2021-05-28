@@ -21,7 +21,7 @@ namespace ProjectService
             return await Repository.AllBooks(howToSort, howToFilter, bookPaging);
         }
 
-        public async Task<IBooks> FindBookById(int id)
+        public async Task<IBooks> FindBookById(Guid id)
         {
             return await Repository.BookById(id);
         }
@@ -29,12 +29,12 @@ namespace ProjectService
         {
             await Repository.AddBook(book);
         }
-        public async Task UpdateBook(int id, IBooks book)
+        public async Task UpdateBook(Guid id, IBooks book)
         {
             await Repository.Updatebook(id, book);
         }
 
-        public async Task DeleteTheBook(int id)
+        public async Task DeleteTheBook(Guid id)
         {
             await Repository.DeleteBook(id);
         }

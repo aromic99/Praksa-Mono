@@ -60,7 +60,7 @@ namespace Project.Repository
                 while (reader.Read())
                 {
                     AuthorEntity author = new AuthorEntity();
-                    author.AuthorID = Convert.ToInt32(reader.GetValue(0));
+                    author.AuthorID = ((Guid)reader.GetValue(0)); ;
                     author.Name = reader.GetValue(1).ToString();
                     author.IsAlive = Convert.ToBoolean(reader.GetValue(2));
                     authors.Add(author);
@@ -75,7 +75,7 @@ namespace Project.Repository
             return mapper.Map<List<IAuthors>>(authors);
 
         }
-        public async Task<IAuthors> AuthorById(int id)
+        public async Task<IAuthors> AuthorById(Guid id)
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
@@ -87,7 +87,7 @@ namespace Project.Repository
             while (reader.Read())
             {
                 author = new AuthorEntity();
-                author.AuthorID = Convert.ToInt32(reader.GetValue(0));
+                author.AuthorID = ((Guid)reader.GetValue(0)); ;
                 author.Name = reader.GetValue(1).ToString();
                 author.IsAlive = Convert.ToBoolean(reader.GetValue(2));
 
@@ -110,7 +110,7 @@ namespace Project.Repository
             sqlCmd.ExecuteNonQuery();
             myConnection.Close();
         }
-        public async Task UpdateAnAuthor(int id, [FromBody] IAuthors author)
+        public async Task UpdateAnAuthor(Guid id, [FromBody] IAuthors author)
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
@@ -123,7 +123,7 @@ namespace Project.Repository
             sqlCmd.ExecuteNonQuery();
             myConnection.Close();
         }
-        public async Task DeleteAnAuthor(int id)
+        public async Task DeleteAnAuthor(Guid id)
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;

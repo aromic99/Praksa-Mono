@@ -1,8 +1,10 @@
-﻿namespace Models.Common
+﻿using System;
+
+namespace Models.Common
 {
     public interface IAuthors
     {
-        int AuthorID { get; set; }
+        Guid AuthorID { get; set; }
         bool IsAlive { get; set; }
         string Name { get; set; }
     }

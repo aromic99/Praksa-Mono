@@ -61,10 +61,10 @@ namespace Project.Repository
                 while (reader.Read())
                 {
                     book = new BookEntity();
-                    book.BookId = Convert.ToInt32(reader.GetValue(0));
+                    book.BookId = ((Guid)reader.GetValue(0));
                     book.Name = reader.GetValue(1).ToString();
                     book.Year = Convert.ToInt32(reader.GetValue(2));
-                    book.AuthorID = Convert.ToInt32(reader.GetValue(3));
+                    book.AuthorID = ((Guid)reader.GetValue(3)); ;
                     books.Add(book);
                 }
             }
@@ -78,7 +78,7 @@ namespace Project.Repository
 
         }
 
-        public async Task<IBooks> BookById(int id)
+        public async Task<IBooks> BookById(Guid id)
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
@@ -90,10 +90,10 @@ namespace Project.Repository
             while (reader.Read())
             {
                 book = new BookEntity();
-                book.BookId = Convert.ToInt32(reader.GetValue(0));
+                book.BookId = ((Guid)reader.GetValue(0)); ;
                 book.Name = reader.GetValue(1).ToString();
                 book.Year = Convert.ToInt32(reader.GetValue(2));
-                book.AuthorID = Convert.ToInt32(reader.GetValue(3));
+                book.AuthorID = ((Guid)reader.GetValue(3)); ;
             }
             myConnection.Close();
             await Task.Delay(20);
@@ -103,10 +103,9 @@ namespace Project.Repository
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
-            sqlCmd.CommandText = "INSERT INTO Books(BookID, Name, Year, AuthorID) VALUES(@BookID, @Name, @Year, @AuthorID); ";
+            sqlCmd.CommandText = "INSERT INTO Books(BookID, Name, Year, AuthorID) VALUES(default, @Name, @Year, @AuthorID); ";
             sqlCmd.Connection = myConnection;
             myConnection.Open();
-            sqlCmd.Parameters.AddWithValue("@BookID", book.BookId);
             sqlCmd.Parameters.AddWithValue("@Name", book.Name);
             sqlCmd.Parameters.AddWithValue("@Year", book.Year);
             sqlCmd.Parameters.AddWithValue("@AuthorID", book.AuthorID);
@@ -114,7 +113,7 @@ namespace Project.Repository
             sqlCmd.ExecuteNonQuery();
             myConnection.Close();
         }
-        public async Task Updatebook(int id, [FromBody] IBooks book)
+        public async Task Updatebook(Guid id, [FromBody] IBooks book)
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
@@ -128,7 +127,7 @@ namespace Project.Repository
             sqlCmd.ExecuteNonQuery();
             myConnection.Close();
         }
-        public async Task DeleteBook(int id)
+        public async Task DeleteBook(Guid id)
         {
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;

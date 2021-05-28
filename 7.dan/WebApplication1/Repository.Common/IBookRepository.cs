@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Models.Common;
 using WebApp.Common;
+using System;
 
 namespace IRepository
 {
@@ -11,8 +12,8 @@ namespace IRepository
     {
         Task AddBook([FromBody] IBooks book);
         Task<List<IBooks>> AllBooks(ISortingBooks howToSort,IFilteringBooks howToFilter, IPaging bookPaging);
-        Task<IBooks> BookById(int id);
-        Task DeleteBook(int id);
-        Task Updatebook(int id, [FromBody] IBooks book);
+        Task<IBooks> BookById(Guid id);
+        Task DeleteBook(Guid id);
+        Task Updatebook(Guid id, [FromBody] IBooks book);
     }
 }

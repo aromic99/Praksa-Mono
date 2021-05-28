@@ -42,13 +42,13 @@ namespace WebApplication1.WebAPI.Controllers
         }
         public class AuthorRest
         {
-            public int AuthorID { get; set; }
+            public Guid AuthorID { get; set; }
             public string Name { get; set; }
             public bool IsAlive { get; set; }
         }
         
         [HttpGet]
-        public async Task<HttpResponseMessage> GetAuthorById(int id)
+        public async Task<HttpResponseMessage> GetAuthorById(Guid id)
         {
             
                 if (await Service.FindAuthorById(id)!=null)
@@ -71,7 +71,7 @@ namespace WebApplication1.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, "New author added");
         }
 
-        public async Task<HttpResponseMessage> Put(int id, [FromBody] AuthorRest author)
+        public async Task<HttpResponseMessage> Put(Guid id, [FromBody] AuthorRest author)
         {
             
                 if (await Service.FindAuthorById(id) != null)
@@ -84,7 +84,7 @@ namespace WebApplication1.WebAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest, "There is no author with that ID");
         }
 
-        public async Task<HttpResponseMessage> Delete(int id)
+        public async Task<HttpResponseMessage> Delete(Guid id)
         {
                 if (await Service.FindAuthorById(id) != null)
                 {
